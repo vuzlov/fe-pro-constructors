@@ -8,4 +8,13 @@ import { Book } from './Book.js';
  * @property {Date} dateOfBirth
  * @property {Book[]} books
  */
-export function Author(name, dateOfBirth) {}
+export function Author(name, dateOfBirth) {
+    this.name = name;
+    this.dateOfBirth = dateOfBirth;
+    this.books = [];
+    Object.defineProperty(this, 'setBook', {
+      set (book) {
+        this.books.push(book);
+      },
+    });
+}
